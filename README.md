@@ -1,4 +1,3 @@
-# data1
 # -*- coding: utf-8 -*-
 # @Time    : 17-12-26 上午8:59
 # @Author  : Lin
