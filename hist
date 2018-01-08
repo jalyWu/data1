@@ -1,0 +1,73 @@
+# -*- coding: utf-8 -*-
+# @Time    : 17-12-28 上午10:17
+# @Author  : Lin
+# @Email   : wujialin5@huawei.com
+# @File    : historyRule.py
+# @Software: PyCharm
+
+import pandas as pd
+import numpy as np
+import datetime
+
+aug = pd.read_csv('../EDA/train_aug.csv', parse_dates=['create_date'])
+july = pd.read_csv('../EDA/train_july.csv', parse_dates=['create_date'])
+test = pd.read_csv('../EDA/test_id_aug.csv', parse_dates=['create_date'])
+
+test_ids = []
+result = []
+
+for i in range(len(test)):
+    test_id, start_geo_id, end_geo_id, create_date, create_hour = test.iloc[i]
+    test_ids.append(test_id)
+    hist = aug.loc[(aug['start_geo_id']==start_geo_id)&(aug['end_geo_id']==end_geo_id)]
+
+
+    if len(hist) == 0 or hist['count'].mean()==1:
+        result.append(1)
+        continue
+
+    samedate = hist.loc[hist['create_date']==create_date]
+
+    if len(samedate) > 0:
+        result.append(samedate['count'].mean())
+        continue
+
+    samehour = hist.loc[hist['create_hour'] == create_hour]
+
+    if len(samehour) > 0:
+        result.append(samehour['count'].mean())
+        continue
+
+    before_hour = create_hour-1
+    after_hour = create_hour + 1
+
+    before_date = create_date-datetime.timedelta(days=1)
+    after_date = create_date + datetime.timedelta(days=1)
+
+    abhour = hist.loc[((hist['create_date'] == before_date) | (hist['create_date'] == after_date))&
+                      ((hist['create_hour'] == before_hour) | (hist['create_hour'] == after_hour))]
+    if len(abhour) > 0:
+        result.append(abhour['count'].mean())
+        continue
+    abhour = hist.loc[(hist['create_hour'] == before_hour) | (hist['create_hour'] == after_hour)]
+    if len(abhour) > 0:
+        result.append(abhour['count'].mean())
+        continue
+    abhour = hist.loc[(hist['create_date'] == before_date) | (hist['create_date'] == after_date)]
+    if len(abhour) > 0:
+        result.append(abhour['count'].mean())
+        continue
+    ave = hist['count'].mean()
+    result.append(ave)
+
+    # print create_date, create_hour
+    # print hist[['create_date', 'create_hour', 'count']]
+
+    # result.append('un')
+
+result = [round(i) for i in result]
+pd.DataFrame({'test_id':test_ids, 'count':result}).to_csv('hist.csv', index=False)
+
+print result.count('un')
+
+
