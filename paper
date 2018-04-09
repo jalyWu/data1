@@ -12,3 +12,6 @@ Pang,et al. 采用不同的机器学习技术来挖掘电影评论，并研究�
 
 [1]sentiment analysis and opinion mining liu, B 
 [2]mining and summarizing customer reviews acm hu,M
+
+Mining opinion features in customer reviews
+hu,M和liu,B提出用关联规则来抽取观点特征，即opinion features；他们先对句子进行分词及词性标注，将名词及名词短语保留下来后，采用论文[Liu, B., Hsu, W., Ma, Y. 1998. Integrating Classification and Association Rule Mining. KDD-98, 1998.]提出的基于Apriori算法[Agrawal, R. and Srikant, R. 1994. “Fast algorithm for mining association rules.” VLDB’94, 1994.]的关联规则挖掘器，将所有频繁项集抽取出来，再对抽取出的观点特征进行紧凑度和冗余性剪枝，根据观点特征，利用特征与观点词之间的修饰关系，可以抽取出观点词，反过来，作者又利用观点词来抽取非频繁特征，从而提高了抽取结果的召回率；但论文中没有涉及对隐含特征的抽取，只关注对显式出现的特征的抽取。
