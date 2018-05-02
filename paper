@@ -15,3 +15,26 @@ Pang,et al. 采用不同的机器学习技术来挖掘电影评论，并研究�
 
 Mining opinion features in customer reviews
 hu,M和liu,B提出用关联规则来抽取观点特征，即opinion features；他们先对句子进行分词及词性标注，将名词及名词短语保留下来后，采用论文[Liu, B., Hsu, W., Ma, Y. 1998. Integrating Classification and Association Rule Mining. KDD-98, 1998.]提出的基于Apriori算法[Agrawal, R. and Srikant, R. 1994. “Fast algorithm for mining association rules.” VLDB’94, 1994.]的关联规则挖掘器，将所有频繁项集抽取出来，再对抽取出的观点特征进行紧凑度和冗余性剪枝，根据观点特征，利用特征与观点词之间的修饰关系，可以抽取出观点词，反过来，作者又利用观点词来抽取非频繁特征，从而提高了抽取结果的召回率；但论文中没有涉及对隐含特征的抽取，只关注对显式出现的特征的抽取。
+
+
+观点挖掘是一个挑战性的任务，但在实际中却是非常有用的；例如，销售商经常想要了解公众或消费者对他们的商品或服务的评价，潜在消费者也想在使用服务或购买某一个商品前了解已有用户对它们的评价。
+(1) I bought an iPhone a few days ago. (2) It was such a nice phone. (3) The touch
+screen was really cool. (4) The voice quality was clear too. (5) However, my mother was
+mad with me as I did not tell her before I bought it. (6) She also thought the phone was too
+expensive, and wanted me to return it to the shop... "
+实体可以是一个商品、一种服务、一个人、一件事、一个组织或一个主题
+Example 1.2 A particular brand of cellular phone is an entity, e.g.,
+iPhone. It has a set of components, e.g., battery and screen, and also a
+set of attributes, e.g., voice quality, size, and weight. The battery com-
+ponent also has its own set of attributes, e.g., battery life, and battery
+size.
+通常有两种主要的观点类型，一是常规的观点评价，二是对比性的观点评价；
+观点挖掘的目标即是：给定包含观点的文档集合，从中挖掘出所有的观点五元组，为达到这个目标，可以分解为以下几个小任务：
+1.实体抽取跟聚集：将文档集中所有的实体抽取出来后，将同义的实体表达聚类到同一个实体簇中，每一个实体簇代表了一个唯一的实体；
+2.方面抽取跟聚集：抽取实体的所有方面表达，将方面聚类成簇，每一个方面类簇代表了一个唯一的方面；
+3.观点持有人跟时间抽取：从无结构的文本数据中抽取观点表达者和时间信息；
+4.方面情感分类：确定对每一个方面的观点评价是积极、消极或是中性的；
+5.观点五元组的产生：根据上述四步的结果生成文档集中所有的观点五元组；
+
+主观性句子和客观性句子；
+
