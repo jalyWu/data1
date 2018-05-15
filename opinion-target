@@ -1,0 +1,28 @@
+def read_reviews(filepath):
+    '''
+    Parsing source review data
+    :param filepath: review file path
+    :return: reviews list, each review is also a list consist of aspects and sentence
+    '''
+    f = open(filepath)
+    head = [f.readline() for _ in range(11)]
+    line = f.readline()
+    reviews = []
+    review = []
+    while line:
+        if line.startswith('[t]'):
+            title = line[3:]
+            # print 'Parsing review %s' % title
+            if review:
+                reviews.append(review)
+                review = []
+        else:
+            aspect_chunks, sentence = line.strip().split('##')
+            if aspect_chunks:
+                aspects = aspect_chunks.split(',')
+                aspects = [asp[:-4] for asp in aspects]
+                review.append([aspects, sentence])
+        line = f.readline()
+    if review:
+        reviews.append(review)
+    return reviews
