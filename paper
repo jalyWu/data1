@@ -47,3 +47,9 @@ aspect extraction:
 2.利用方面词和观点词之间的关系抽取非频繁方面词。在第一步中，会遗漏很多非频繁的但本质上是方面词的名词；第二步的目的就是找出这些非频繁方面词；其思想如下：同一个观点词可以被用来描述或修饰不同的方面词，用来修饰频繁方面词的观点词也可以用来修饰非频繁方面词，因此可以利用观点词来抽取非频繁的方面词，可以从如下例子看出，“The pictures are absolutely amazing.”和“The software is amazing.”，假设picture是已抽取出的频繁方面词，如果知道了amazing是一个观点词，那么在第二句中software这个词也可以被抽取出来并当做方面词；因为这两句评论都有相同的句法依赖模式并且software也是一个名词，这个思想主要利用了观点词和方面词之间的修饰关系，后续也被推广发展成double-propagation方法，能够同时抽取观点词和方面词。
     其他与方面抽取相关的工作，有利用先验知识的，有监督学习方法，半监督学习方法，主题模型和聚类等方法。例如，很多信息抽取的技术都可以利用，如条件随机场[33,52],隐马尔科夫[22,34,35]以及序列规则挖掘[60]。
     主题模型作为一种无监督的方法，也被用来抽取方面词；Titov和McDonald的研究表明全局的主题模型如LDA(狄利克雷分布)并不适合用来做方面词的抽取，作者提出了多粒度的主题模型来发现局部方面词，但由于主题模型抽取出来的词语很大程度上是主题词，严格上并不能算做方面词，其能做到的是把描述同一方面的词汇聚集到一起；
+
+An Unsupervised Neural Attention Model for Aspect Extraction
+Aspect Extraction through Semi-Supervised Modeling
+Aspect Extraction with Automated Prior Knowledge Learning
+Exploiting Domain Knowledge in Aspect Extraction
+Supervised Opinion Aspect Extraction by Exploiting Past Extraction Results
