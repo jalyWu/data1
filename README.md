@@ -16,3 +16,6 @@ $$tanh`(x)=\frac{(e^x+e^{-x})·(e^x+e^{-x})-(e^x-e^{-x})·(e^x-e^{-x})}{(e^x+e^{
 $$=\frac{(e^x+e^{-x})^2-(e^x-e^{-x})^2}{(e^x+e^{-x})^2}$$
 $$=1-(\frac{e^x-e^{-x}}{e^x+e^{-x}})^2$$
 $$=1-tanh^2(x)$$
+
+
+https://medium.com/machine-learning-in-practice/over-150-of-the-best-machine-learning-nlp-and-python-tutorials-ive-found-ffce2939bd78
