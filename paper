@@ -53,3 +53,24 @@ Aspect Extraction through Semi-Supervised Modeling
 Aspect Extraction with Automated Prior Knowledge Learning
 Exploiting Domain Knowledge in Aspect Extraction
 Supervised Opinion Aspect Extraction by Exploiting Past Extraction Results
+
+
+A Rule-Based Approach to Aspect Extraction from Product Reviews
+SocialNLP 2014
+
+Fine-grained product features extraction and categorization in reviews opinion mining
+
+Ana-Maria Popescu and Oren Etzioni. 2005. Extracting product features and opinions from reviews. In Proceedings
+of Conference on Empirical Methods in Natural Language Processing (EMNLP-2005), pages 3–28.
+
+
+Fine-grained Opinion Mining with Recurrent Neural Networks and Word Embeddings 
+2015 EMNLP
+Code for paper 	https://github.com/ppfliu/opinion-target
+Elman network 
+Jordan network
+
+Improving opinion extraction using semantic similarity and aspect associations
+AAAI 2016
+Dataset 5.8 million Amazon reviews of all kinds of products for word vectors training.
+Multiple domains review, 100types, 50 electronic and 50 non-electronic, each product has 200 reviews.
