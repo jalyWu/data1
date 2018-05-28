@@ -74,3 +74,7 @@ Improving opinion extraction using semantic similarity and aspect associations
 AAAI 2016
 Dataset 5.8 million Amazon reviews of all kinds of products for word vectors training.
 Multiple domains review, 100types, 50 electronic and 50 non-electronic, each product has 200 reviews.
+
+ASPECT-BASED OPINION EXTRACTION FROM CUSTOMER REVIEWS
+Double Embeddings and CNN-based Sequence Labeling for Aspect Extraction
+A Logic Programming Approach to Aspect Extraction in Opinion Mining
